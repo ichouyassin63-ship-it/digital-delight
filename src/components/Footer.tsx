@@ -4,7 +4,7 @@ import { Zap, Shield, Truck, CreditCard } from "lucide-react";
 export function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
         <div className="mb-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
           {[
             { icon: Truck, title: "Livraison Instantanée", desc: "Réception immédiate" },
@@ -57,8 +57,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-border pt-6 text-center text-xs text-muted-foreground">
-          © 2024 DigiStore. Tous droits réservés.
+        <div className="mt-8 border-t border-border pt-4 text-center text-xs text-muted-foreground sm:mt-10 sm:pt-6">
+          © 2025 DigiStore. Tous droits réservés.
         </div>
       </div>
     </footer>
