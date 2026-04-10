@@ -3,6 +3,7 @@ import { Star, Zap, ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Product } from "@/lib/types";
 import { useCart } from "@/lib/cart-context";
+import { formatPrice } from "@/lib/format";
 
 export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
   const { addItem } = useCart();
@@ -57,11 +58,11 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
         <div className="mt-3 flex items-center justify-between">
           <div className="flex items-baseline gap-2">
             <span className="font-heading text-lg font-bold text-foreground">
-              {product.price.toFixed(2)}€
+              {formatPrice(product.price)}
             </span>
             {product.originalPrice && (
               <span className="text-xs text-muted-foreground line-through">
-                {product.originalPrice.toFixed(2)}€
+                {formatPrice(product.originalPrice)}
               </span>
             )}
           </div>

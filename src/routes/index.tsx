@@ -25,7 +25,7 @@ function HomePage() {
             transition={{ duration: 0.6 }}
           >
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary">
-              <Zap className="h-3.5 w-3.5" /> Livraison instantanée garantie
+              <Zap className="h-3.5 w-3.5" /> Livraison instantanée en Algérie
             </span>
             <h1 className="mx-auto mt-6 max-w-4xl font-heading text-4xl font-bold leading-tight text-foreground sm:text-6xl lg:text-7xl">
               Vos produits numériques{" "}
@@ -33,7 +33,7 @@ function HomePage() {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
               Abonnements, licences, cartes cadeaux et clés d'activation.
-              Livraison immédiate, paiement sécurisé, support 24/7.
+              Livraison immédiate, paiement sécurisé par CCP, BaridiMob & Edahabia.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
@@ -59,8 +59,8 @@ function HomePage() {
             className="mx-auto mt-16 grid max-w-3xl grid-cols-2 gap-6 sm:grid-cols-4"
           >
             {[
-              { value: "50K+", label: "Clients" },
-              { value: "10K+", label: "Produits" },
+              { value: "15K+", label: "Clients en Algérie" },
+              { value: "500+", label: "Produits" },
               { value: "4.8/5", label: "Note moyenne" },
               { value: "<30s", label: "Livraison" },
             ].map((stat) => (
@@ -78,7 +78,7 @@ function HomePage() {
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:grid-cols-3 sm:px-6">
           {[
             { icon: Zap, title: "Livraison Instantanée", desc: "Recevez vos produits en quelques secondes après le paiement" },
-            { icon: Shield, title: "Paiement Sécurisé", desc: "Chiffrement SSL, Stripe & PayPal pour une sécurité maximale" },
+            { icon: Shield, title: "Paiement Sécurisé", desc: "CCP, BaridiMob, Carte Edahabia & virement bancaire" },
             { icon: Clock, title: "Support 24/7", desc: "Notre équipe vous accompagne à tout moment" },
           ].map((feature) => (
             <motion.div
@@ -107,7 +107,7 @@ function HomePage() {
                 <TrendingUp className="h-5 w-5 text-primary" />
                 <h2 className="font-heading text-2xl font-bold text-foreground">Populaires</h2>
               </div>
-              <p className="mt-1 text-sm text-muted-foreground">Les produits les plus vendus du moment</p>
+              <p className="mt-1 text-sm text-muted-foreground">Les produits les plus vendus en Algérie</p>
             </div>
             <Link
               to="/catalog"
@@ -133,10 +133,10 @@ function HomePage() {
             ))}
           </div>
           <p className="mt-3 font-heading text-lg font-semibold text-foreground">
-            Noté 4.8/5 par plus de 50 000 clients
+            Noté 4.8/5 par plus de 15 000 clients algériens
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Plateforme de confiance pour vos achats numériques
+            Plateforme de confiance pour vos achats numériques en Algérie
           </p>
         </div>
       </section>

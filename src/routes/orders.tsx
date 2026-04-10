@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Package, Copy, Check, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { mockOrders } from "@/lib/mock-data";
+import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/orders")({
   head: () => ({
@@ -77,7 +78,7 @@ function OrderCard({ order, index }: { order: typeof mockOrders[0]; index: numbe
             {order.status === "completed" ? "Complétée" : order.status === "pending" ? "En cours" : "Remboursée"}
           </span>
           <span className="font-heading text-lg font-bold text-foreground">
-            {order.total.toFixed(2)}€
+            {formatPrice(order.total)}
           </span>
         </div>
       </div>
@@ -96,7 +97,7 @@ function OrderCard({ order, index }: { order: typeof mockOrders[0]; index: numbe
               <p className="text-xs text-muted-foreground">Qté: {item.quantity}</p>
             </div>
             <span className="text-sm font-medium text-foreground">
-              {(item.product.price * item.quantity).toFixed(2)}€
+              {formatPrice(item.product.price * item.quantity)}
             </span>
           </div>
         ))}

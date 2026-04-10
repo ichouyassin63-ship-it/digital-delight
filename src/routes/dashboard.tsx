@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { User, Package, Clock, CreditCard, LogOut, Settings, ChevronRight } from "lucide-react";
 import { mockOrders } from "@/lib/mock-data";
+import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
@@ -29,8 +30,8 @@ function DashboardPage() {
           <User className="h-7 w-7 text-primary" />
         </div>
         <div>
-          <h1 className="font-heading text-xl font-bold text-foreground">Jean Dupont</h1>
-          <p className="text-sm text-muted-foreground">jean.dupont@email.com</p>
+          <h1 className="font-heading text-xl font-bold text-foreground">Ahmed Benali</h1>
+          <p className="text-sm text-muted-foreground">ahmed.benali@email.com</p>
         </div>
       </motion.div>
 
@@ -39,8 +40,8 @@ function DashboardPage() {
         {[
           { label: "Commandes", value: mockOrders.length.toString(), icon: Package },
           { label: "Complétées", value: completedOrders.toString(), icon: Clock },
-          { label: "Total dépensé", value: `${totalSpent.toFixed(0)}€`, icon: CreditCard },
-          { label: "Membre depuis", value: "2024", icon: User },
+          { label: "Total dépensé", value: formatPrice(totalSpent), icon: CreditCard },
+          { label: "Membre depuis", value: "2025", icon: User },
         ].map((stat, i) => (
           <motion.div
             key={stat.label}
@@ -87,7 +88,7 @@ function DashboardPage() {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-sm font-semibold text-foreground">{order.total.toFixed(2)}€</p>
+                <p className="text-sm font-semibold text-foreground">{formatPrice(order.total)}</p>
                 <span
                   className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${
                     order.status === "completed"

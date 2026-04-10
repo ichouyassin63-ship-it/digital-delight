@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Star, ShoppingCart, Zap, Shield, ArrowLeft, Check } from "lucide-react";
 import { products } from "@/lib/mock-data";
 import { useCart } from "@/lib/cart-context";
+import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/product/$slug")({
   head: ({ params }) => {
@@ -97,12 +98,12 @@ function ProductPage() {
 
           <div className="mt-6 flex items-baseline gap-3">
             <span className="font-heading text-4xl font-bold text-foreground">
-              {product.price.toFixed(2)}€
+              {formatPrice(product.price)}
             </span>
             {product.originalPrice && (
               <>
                 <span className="text-lg text-muted-foreground line-through">
-                  {product.originalPrice.toFixed(2)}€
+                  {formatPrice(product.originalPrice)}
                 </span>
                 <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
                   -{discount}%

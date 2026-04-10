@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Trash2, Plus, Minus, ShoppingBag, ArrowRight, ShieldCheck } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
+import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/cart")({
   head: () => ({
@@ -88,7 +89,7 @@ function CartPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="font-heading text-sm font-bold text-foreground">
-                      {(item.product.price * item.quantity).toFixed(2)}€
+                      {formatPrice(item.product.price * item.quantity)}
                     </span>
                     <button
                       onClick={() => removeItem(item.product.id)}
@@ -109,7 +110,7 @@ function CartPage() {
           <div className="mt-4 space-y-3">
             <div className="flex justify-between text-sm">
               <span className="text-muted-foreground">Sous-total</span>
-              <span className="text-foreground">{totalPrice.toFixed(2)}€</span>
+              <span className="text-foreground">{formatPrice(totalPrice)}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-muted-foreground">Livraison</span>
@@ -119,7 +120,7 @@ function CartPage() {
               <div className="flex justify-between">
                 <span className="font-heading font-semibold text-foreground">Total</span>
                 <span className="font-heading text-xl font-bold text-foreground">
-                  {totalPrice.toFixed(2)}€
+                  {formatPrice(totalPrice)}
                 </span>
               </div>
             </div>
@@ -128,7 +129,7 @@ function CartPage() {
             <ShieldCheck className="h-4 w-4" /> Payer maintenant
           </button>
           <p className="mt-3 text-center text-xs text-muted-foreground">
-            Paiement sécurisé par Stripe & PayPal
+            Paiement sécurisé — CCP, BaridiMob, Carte Edahabia
           </p>
         </div>
       </div>
