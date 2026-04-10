@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
 import { Zap, Shield, Clock, ArrowRight, Star, TrendingUp } from "lucide-react";
 import { products } from "@/lib/mock-data";
 import { ProductCard } from "@/components/ProductCard";
@@ -14,109 +13,99 @@ function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden py-20 sm:py-32">
+      <section className="relative overflow-hidden px-4 py-12 sm:py-20 lg:py-32">
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute left-1/2 top-0 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]" />
+          <div className="absolute left-1/2 top-0 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-primary/20 blur-[100px] sm:h-[500px] sm:w-[800px] sm:blur-[120px]" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary">
-              <Zap className="h-3.5 w-3.5" /> Livraison instantanée en Algérie
+        <div className="relative mx-auto max-w-7xl text-center">
+          <div className="animate-fade-in">
+            <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary sm:gap-2 sm:px-4 sm:py-1.5 sm:text-xs">
+              <Zap className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> Livraison instantanée en Algérie
             </span>
-            <h1 className="mx-auto mt-6 max-w-4xl font-heading text-4xl font-bold leading-tight text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="mx-auto mt-4 max-w-4xl font-heading text-3xl font-bold leading-tight text-foreground sm:mt-6 sm:text-5xl lg:text-7xl">
               Vos produits numériques{" "}
               <span className="gradient-glow-text">au meilleur prix</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:mt-6 sm:max-w-2xl sm:text-lg">
               Abonnements, licences, cartes cadeaux et clés d'activation.
-              Livraison immédiate, paiement sécurisé par CCP, BaridiMob & Edahabia.
+              Paiement sécurisé par CCP, BaridiMob & Edahabia.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4">
               <Link
                 to="/catalog"
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 font-heading text-sm font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25 active:scale-95"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 font-heading text-sm font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25 active:scale-95 sm:w-auto sm:px-8 sm:py-3.5"
               >
                 Explorer le catalogue <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/dashboard"
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-secondary px-8 py-3.5 font-heading text-sm font-semibold text-secondary-foreground transition-colors hover:bg-muted"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-secondary px-6 py-3 font-heading text-sm font-semibold text-secondary-foreground transition-colors hover:bg-muted sm:w-auto sm:px-8 sm:py-3.5"
               >
                 Mon espace client
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto mt-16 grid max-w-3xl grid-cols-2 gap-6 sm:grid-cols-4"
-          >
+          <div className="animate-fade-in-delay mx-auto mt-10 grid max-w-sm grid-cols-2 gap-4 sm:mt-16 sm:max-w-3xl sm:grid-cols-4 sm:gap-6">
             {[
-              { value: "15K+", label: "Clients en Algérie" },
+              { value: "15K+", label: "Clients" },
               { value: "500+", label: "Produits" },
-              { value: "4.8/5", label: "Note moyenne" },
+              { value: "4.8/5", label: "Note" },
               { value: "<30s", label: "Livraison" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="font-heading text-2xl font-bold text-primary">{stat.value}</p>
-                <p className="mt-1 text-xs text-muted-foreground">{stat.label}</p>
+                <p className="font-heading text-xl font-bold text-primary sm:text-2xl">{stat.value}</p>
+                <p className="mt-0.5 text-[11px] text-muted-foreground sm:text-xs">{stat.label}</p>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="border-y border-border bg-surface py-16">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:grid-cols-3 sm:px-6">
+      <section className="border-y border-border bg-surface px-4 py-10 sm:py-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-8 sm:px-6">
           {[
-            { icon: Zap, title: "Livraison Instantanée", desc: "Recevez vos produits en quelques secondes après le paiement" },
-            { icon: Shield, title: "Paiement Sécurisé", desc: "CCP, BaridiMob, Carte Edahabia & virement bancaire" },
-            { icon: Clock, title: "Support 24/7", desc: "Notre équipe vous accompagne à tout moment" },
+            { icon: Zap, title: "Livraison Instantanée", desc: "Recevez vos produits en quelques secondes" },
+            { icon: Shield, title: "Paiement Sécurisé", desc: "CCP, BaridiMob, Carte Edahabia" },
+            { icon: Clock, title: "Support 24/7", desc: "On vous accompagne à tout moment" },
           ].map((feature) => (
-            <motion.div
+            <div
               key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center gap-3 rounded-xl border border-border bg-card p-6 text-center"
+              className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 sm:flex-col sm:gap-3 sm:p-6 sm:text-center"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                <feature.icon className="h-6 w-6 text-primary" />
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 sm:h-12 sm:w-12">
+                <feature.icon className="h-5 w-5 text-primary sm:h-6 sm:w-6" />
               </div>
-              <h3 className="font-heading text-base font-semibold text-foreground">{feature.title}</h3>
-              <p className="text-sm text-muted-foreground">{feature.desc}</p>
-            </motion.div>
+              <div>
+                <h3 className="font-heading text-sm font-semibold text-foreground sm:text-base">{feature.title}</h3>
+                <p className="mt-0.5 text-xs text-muted-foreground sm:mt-1 sm:text-sm">{feature.desc}</p>
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Popular Products */}
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="mb-8 flex items-center justify-between">
+      <section className="px-4 py-10 sm:py-16">
+        <div className="mx-auto max-w-7xl sm:px-6">
+          <div className="mb-6 flex items-center justify-between sm:mb-8">
             <div>
               <div className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-primary" />
-                <h2 className="font-heading text-2xl font-bold text-foreground">Populaires</h2>
+                <TrendingUp className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
+                <h2 className="font-heading text-xl font-bold text-foreground sm:text-2xl">Populaires</h2>
               </div>
-              <p className="mt-1 text-sm text-muted-foreground">Les produits les plus vendus en Algérie</p>
+              <p className="mt-0.5 text-xs text-muted-foreground sm:mt-1 sm:text-sm">Les plus vendus en Algérie</p>
             </div>
             <Link
               to="/catalog"
-              className="flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+              className="flex items-center gap-1 text-xs font-medium text-primary hover:underline sm:text-sm"
             >
-              Voir tout <ArrowRight className="h-4 w-4" />
+              Voir tout <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
             {popularProducts.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -125,18 +114,18 @@ function HomePage() {
       </section>
 
       {/* Trust Banner */}
-      <section className="border-t border-border bg-surface py-12">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
-          <div className="flex items-center justify-center gap-1">
+      <section className="border-t border-border bg-surface px-4 py-8 sm:py-12">
+        <div className="mx-auto max-w-7xl text-center sm:px-6">
+          <div className="flex items-center justify-center gap-0.5">
             {[1, 2, 3, 4, 5].map((s) => (
-              <Star key={s} className="h-5 w-5 fill-primary text-primary" />
+              <Star key={s} className="h-4 w-4 fill-primary text-primary sm:h-5 sm:w-5" />
             ))}
           </div>
-          <p className="mt-3 font-heading text-lg font-semibold text-foreground">
-            Noté 4.8/5 par plus de 15 000 clients algériens
+          <p className="mt-2 font-heading text-sm font-semibold text-foreground sm:mt-3 sm:text-lg">
+            Noté 4.8/5 par plus de 15 000 clients
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Plateforme de confiance pour vos achats numériques en Algérie
+          <p className="mt-0.5 text-xs text-muted-foreground sm:mt-1 sm:text-sm">
+            Plateforme de confiance en Algérie
           </p>
         </div>
       </section>

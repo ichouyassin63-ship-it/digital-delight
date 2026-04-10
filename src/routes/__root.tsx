@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 import { CartProvider } from "@/lib/cart-context";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MobileBottomNav } from "@/components/MobileBottomNav";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -32,9 +33,9 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "DigiStore — Produits Numériques & Abonnements" },
-      { name: "description", content: "Achetez vos produits numériques, abonnements, licences et cartes cadeaux au meilleur prix. Livraison instantanée." },
+      { name: "description", content: "Achetez vos produits numériques, abonnements, licences et cartes cadeaux au meilleur prix en Algérie. Livraison instantanée." },
       { property: "og:title", content: "DigiStore — Produits Numériques" },
-      { property: "og:description", content: "Marketplace de produits numériques de confiance" },
+      { property: "og:description", content: "Marketplace de produits numériques de confiance en Algérie" },
       { property: "og:type", content: "website" },
     ],
     links: [
@@ -63,12 +64,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
     <CartProvider>
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-dvh flex-col">
         <Header />
-        <main className="flex-1">
+        <main className="flex-1 pb-16 md:pb-0">
           <Outlet />
         </main>
         <Footer />
+        <MobileBottomNav />
       </div>
     </CartProvider>
   );
