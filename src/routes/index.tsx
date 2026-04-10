@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
 import { Zap, Shield, Clock, ArrowRight, Star, TrendingUp } from "lucide-react";
 import { products } from "@/lib/mock-data";
 import { ProductCard } from "@/components/ProductCard";
@@ -19,11 +18,7 @@ function HomePage() {
           <div className="absolute left-1/2 top-0 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-primary/20 blur-[100px] sm:h-[500px] sm:w-[800px] sm:blur-[120px]" />
         </div>
         <div className="relative mx-auto max-w-7xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="animate-fade-in">
             <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary sm:gap-2 sm:px-4 sm:py-1.5 sm:text-xs">
               <Zap className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> Livraison instantanée en Algérie
             </span>
@@ -49,15 +44,10 @@ function HomePage() {
                 Mon espace client
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto mt-10 grid max-w-sm grid-cols-2 gap-4 sm:mt-16 sm:max-w-3xl sm:grid-cols-4 sm:gap-6"
-          >
+          <div className="animate-fade-in-delay mx-auto mt-10 grid max-w-sm grid-cols-2 gap-4 sm:mt-16 sm:max-w-3xl sm:grid-cols-4 sm:gap-6">
             {[
               { value: "15K+", label: "Clients" },
               { value: "500+", label: "Produits" },
@@ -69,7 +59,7 @@ function HomePage() {
                 <p className="mt-0.5 text-[11px] text-muted-foreground sm:text-xs">{stat.label}</p>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -81,11 +71,8 @@ function HomePage() {
             { icon: Shield, title: "Paiement Sécurisé", desc: "CCP, BaridiMob, Carte Edahabia" },
             { icon: Clock, title: "Support 24/7", desc: "On vous accompagne à tout moment" },
           ].map((feature) => (
-            <motion.div
+            <div
               key={feature.title}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
               className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 sm:flex-col sm:gap-3 sm:p-6 sm:text-center"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 sm:h-12 sm:w-12">
@@ -95,7 +82,7 @@ function HomePage() {
                 <h3 className="font-heading text-sm font-semibold text-foreground sm:text-base">{feature.title}</h3>
                 <p className="mt-0.5 text-xs text-muted-foreground sm:mt-1 sm:text-sm">{feature.desc}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
