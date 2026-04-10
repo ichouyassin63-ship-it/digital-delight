@@ -24,7 +24,7 @@ export function MobileMenu() {
       </button>
 
       {open && (
-        <div className="fixed inset-0 top-16 z-40 bg-background/98 backdrop-blur-sm">
+        <div className="fixed inset-0 top-14 z-40 bg-background backdrop-blur-none">
           <nav className="flex flex-col gap-1 px-4 py-6">
             {navLinks.map((link) => (
               <Link
