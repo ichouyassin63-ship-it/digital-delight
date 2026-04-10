@@ -1,20 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { Star, Zap, ShoppingCart } from "lucide-react";
-import { motion } from "framer-motion";
 import type { Product } from "@/lib/types";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/format";
 
-export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
+export function ProductCard({ product }: { product: Product; index?: number }) {
   const { addItem } = useCart();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="group card-hover overflow-hidden rounded-lg border border-border bg-card sm:rounded-xl"
-    >
+    <div className="group card-hover overflow-hidden rounded-lg border border-border bg-card sm:rounded-xl">
       <Link to="/product/$slug" params={{ slug: product.slug }} className="block">
         <div className="relative aspect-[4/3] overflow-hidden">
           <img
@@ -77,6 +71,6 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
